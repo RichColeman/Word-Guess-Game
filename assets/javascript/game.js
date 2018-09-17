@@ -1,5 +1,6 @@
 //phrases for the word guess game
 var phrases = ["tastykake","cheesesteak","jawn","rocky","Schuylkill", "Water Ice","Wawa"]
+console.log(phrases[0].length)
 
 // choose a random word
 var chosenWord = phrases[0];
@@ -18,6 +19,12 @@ var underscoreWord = ""
 for (var i = 0; i < chosenWord.length; i++){
     underscoreWord += "_ ";
 }
+
+// each underscore an element
+// currently reference position
+
+
+
     underscoresSpan.innerText = underscoreWord;
     guessesCount.innerText = "Youse got " + guesses + " guesses left."
     lettersGuessed.innerText = "Youse already guessed" + letters + " ."
@@ -27,18 +34,12 @@ var correctLetter = correctLetter <= chosenWord.length
 
 document.onkeyup = function(event) {
     var userGuess = event.key;
-    letters.push(userGuess);
-    
+    for (let i = 0; i < underscoreWord.length; i++){
+        if (userGuess.includes(underscoreWord[i])){
+            console.log("you guessed right!")
+        } else {console.log("you guessed wrong")
 
-    // if (userGuess === chosenWord[w]) {
-    //     for (var i = 0; i < chosenWord.length; i++){
-    //         underscoreWord += "_ "; 
-    //     }
 
-        //   } else if (userGuess === 'r' && computerGuess === 'p'){
-    //     console.log("You lose");
-    //     losses++;
-    //     lossTally.textContent = losses;
-
-// }
+    }
+}
 }
