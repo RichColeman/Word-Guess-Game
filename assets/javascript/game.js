@@ -1,17 +1,9 @@
 //phrases for the word guess game
-var phrases = [
-  "tastykake",
-  "cheesesteak",
-  "jawn",
-  "rocky",
-  "Schuylkill",
-  "Water Ice",
-  "Wawa"
+var phrases = ["tastykake", "wawa"
 ];
-var tastykake = ["t", "a", "s", "t", "y", "k", "a", "k", "e"];
 
 // choose a random word
-var chosenWord = phrases[0];
+var chosenWord = phrases[Math.floor(Math.random() * phrases.length)]
 
 //initialized variables
 var guesses = 13;
@@ -26,7 +18,11 @@ var underscoreWord = "";
 var verdictSpan = document.getElementById("verdict");
 
 for (var i = 0; i < chosenWord.length; i++) {
-  underscoreWord += "_ ";
+  underscoreWord += "_";
+}
+
+function changeValues(){
+
 }
 
 // each underscore an element
@@ -49,18 +45,23 @@ document.onkeyup = function(event) {
     lettersGuessed.textContent = "Dumb";
 
   }
-  // update HTML with guess
+
   for (var i = 0; i < chosenWord.length; i++) {
     // check guesses number
     if (guesses > 0) {
       //check user guess with if else statement
       // if guess matches a letter from the chosen word
-      if (userGuess == chosenWord[i]) {
+      if (userGuess === chosenWord[i]) {
         console.log("this works");
+        var correctLetter = chosenWord.charAt(i);
+        console.log(correctLetter);
+        underscoreWord = underscoreWord.replace(underscoreWord[i], correctLetter);
+        underscoresSpan.textContent = underscoreWord;
+        console.log(underscoreWord)
+        // console.log(underscoreWord.charAt(i));
         // replace underscore with letter***NEED TO FIGURE THIS OUT
-        underscoreWord.replace(underscoreWord.indexOf(i), userGuess);
+        // underscoreWord.splice(0, 1, userGuess);
         // ***NEED TO FIGURE THIS OUT***
-        console.log(underscoreWord);
         // wrong guess decreases guess count and logs guess in html
       } else {
         guesses = 13 - letters.length;
