@@ -1,9 +1,8 @@
 //phrases for the word guess game
-var phrases = ["tastykake", "wawa"
-];
+var phrases = ["tastykake", "wawa"];
 
 // choose a random word
-var chosenWord = phrases[Math.floor(Math.random() * phrases.length)]
+var chosenWord = phrases[Math.floor(Math.random() * phrases.length)];
 
 //initialized variables
 var guesses = 13;
@@ -14,15 +13,11 @@ var letters = [];
 var underscoresSpan = document.getElementById("underscores");
 var guessesCount = document.getElementById("guesses-count");
 var lettersGuessed = document.getElementById("letters-guessed");
-var underscoreWord = "";
 var verdictSpan = document.getElementById("verdict");
+var underscoreWord = "";
 
 for (var i = 0; i < chosenWord.length; i++) {
   underscoreWord += "_";
-}
-
-function changeValues(){
-
 }
 
 // each underscore an element
@@ -40,10 +35,12 @@ document.onkeyup = function(event) {
   // push userGuess to the letters array if the user hasn't guessed it already
   if (userGuess !== letters) {
     letters.push(userGuess);
+    var randomNumber = letters[Math.floor(Math.random() * letters.length)];
+    console.log(randomNumber);
+    console.log(letters);
     lettersGuessed.textContent = "Youse already guessed " + letters + ".";
-  } else {
-    lettersGuessed.textContent = "Dumb";
-
+  } else if (userGuess === letters.randomNumber) {
+    lettersGuessed.innerText = "Dumb";
   }
 
   for (var i = 0; i < chosenWord.length; i++) {
@@ -52,21 +49,16 @@ document.onkeyup = function(event) {
       //check user guess with if else statement
       // if guess matches a letter from the chosen word
       if (userGuess === chosenWord[i]) {
-        console.log("this works");
-        var correctLetter = chosenWord.charAt(i);
-        console.log(correctLetter);
-        underscoreWord = underscoreWord.replace(underscoreWord[i], correctLetter);
+        var s = chosenWord.indexOf(i);
+        console.log(s);  
+        underscoreWord = underscoreWord.replace(underscoreWord, chosenWord);
         underscoresSpan.textContent = underscoreWord;
-        console.log(underscoreWord)
-        // console.log(underscoreWord.charAt(i));
-        // replace underscore with letter***NEED TO FIGURE THIS OUT
-        // underscoreWord.splice(0, 1, userGuess);
-        // ***NEED TO FIGURE THIS OUT***
+
         // wrong guess decreases guess count and logs guess in html
       } else {
         guesses = 13 - letters.length;
         guessesCount.textContent = "Youse got " + guesses + " guesses left.";
-        console.log(guesses);
+        // console.log(guesses);
       }
       // displays loss message
     } else {
