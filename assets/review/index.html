@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+
+
+
+    <script>
+// Get Word
+
+var computerWord = "common";
+var computerWordArr = ["c","o","m","m","o","n"]
+var correctGuessIndexes = [];
+var userGuess = "o";
+var correctGuessIndex = computerWordArr.indexOf(userGuess);
+
+while (correctGuessIndex > -1){
+  correctGuessIndex.push(correctGuessIndex);
+  correctGuessIndex = computerWordArr.indexOf(userGuess, correctGuessIndex + 1);
+}
+
+
+
+
+// start guessing
+
+
+// store the guess in an array
+
+
+// see if letter is in word -- 
+
+indexOf
+
+// if not in word
+
+var remainingGuesses = 10;
+remainingGuesses--;
+
+if (remainingGuesses === 0){
+  // YOU LOSE
+}
+
+// USER GUESSES "o"
+// find first letter
+
+
+//find first letter, find next until no more
+// loop this
+// this will populate correctGuessIndex
+// don't need to push
+
+
+var dashesArr = ["-",]
+
+// for each correct guess index
+// dashes [i] = "o"(userGuess)
+
+//replace dashes with letters
+
+ //no dashes left, you win)
+
+
+
+
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+        var computerWord = "common";
+        var computerWordArr = [];
+        
+        for (i = 0; i< computerWord.length; i++){
+            computerWordArr.push(computerWord.charAt(i));
+        }
+
+
+
+        var userGuess = "o"
+        var correctGuessIndexes = [];
+
+        for (i = 0; i< computerWordArr.length; i++){
+            if (computerWordArr[i] === userGuess){
+                correctGuessIndexes.push(i);
+                dashes.push("_");
+            }
+
+        }
+
+        var correctGuessIndex = computerWordArr.indexOf(userGuess);
+        while (correctGuessIndexes > -1){
+            correctGuessIndexes.push(correctGuessIndex);
+            correctGuessIndex = computerWordArr.indexOf(userGuess, correctGuessIndex + 1);
+        }
+        console.log(computerWordArr, userGuess, correctGuessIndexes)
+        
+        var dashes = []
+        
+        for (i = 0; i < correctGuessIndexes; i++){
+            dashes[correctGuessIndexes[i]] = userGuess;
+        }
+
+        console.log(dashes);
+        
+        
+        
+        
+        
+        
+        
+        
+        </script>
+</body>
+</html>
